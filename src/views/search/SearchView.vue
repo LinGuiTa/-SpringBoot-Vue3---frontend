@@ -31,7 +31,11 @@
               class="product-list-item"
               @click="$router.push(`/product/${product.id}`)"
             >
-              <img :src="product.imageUrl || 'https://via.placeholder.com/120x120?text=暂无'" class="item-image" />
+              <img
+                :src="product.imageUrl || '/favicon.svg'"
+                class="item-image"
+                @error="onImgError"
+              />
               <div class="item-info">
                 <div class="item-name">{{ product.name }}</div>
                 <div class="item-brand">品牌：{{ product.brand || '未知' }}</div>
@@ -85,6 +89,7 @@ const pageSize = ref(10)
 const loading = ref(false)
 const selectedCategory = ref('')
 const lowestMap = ref({})
+const onImgError = (e) => { e.target.src = '/favicon.svg' }
 
 const loadLowestPrices = async (list) => {
   const ids = (list || []).map(p => p.id).filter(Boolean)

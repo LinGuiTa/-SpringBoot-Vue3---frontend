@@ -11,7 +11,10 @@
       <div v-else class="fav-grid">
         <el-card v-for="item in favorites" :key="item.favoriteId" class="fav-card">
           <div class="fav-image" @click="$router.push(`/product/${item.productId}`)">
-            <img :src="item.productImage || 'https://via.placeholder.com/200x200?text=暂无'" />
+            <img
+              :src="item.productImage || ('/products/' + item.productId + '.jpg')"
+              @error="(e)=> e.target.src='/favicon.svg'"
+            />
           </div>
           <div class="fav-info">
             <div class="fav-name" @click="$router.push(`/product/${item.productId}`)">{{ item.productName }}</div>

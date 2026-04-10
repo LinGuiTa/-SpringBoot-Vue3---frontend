@@ -14,8 +14,9 @@
         <el-col :span="8">
           <el-card :body-style="{ padding: '0' }">
             <img
-              :src="product.imageUrl || 'https://via.placeholder.com/400x400?text=暂无图片'"
+              :src="product.imageUrl || '/products/' + productId + '.jpg'"
               style="width:100%;border-radius:8px 8px 0 0"
+              @error="(e) => (e.target.src = '/favicon.svg')"
             />
             <div style="padding:16px">
               <div style="font-size:20px;font-weight:bold;margin-bottom:8px">{{ product.name }}</div>

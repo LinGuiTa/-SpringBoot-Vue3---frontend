@@ -15,7 +15,12 @@
         <el-table-column label="商品" min-width="220">
           <template #default="{ row }">
             <div class="product-cell" @click="$router.push(`/product/${row.productId}`)">
-              <img v-if="productMap[row.productId]?.imageUrl" :src="productMap[row.productId].imageUrl" class="product-thumb" />
+              <img
+                v-if="productMap[row.productId]?.imageUrl"
+                :src="productMap[row.productId].imageUrl"
+                class="product-thumb"
+                @error="(e)=> e.target.src='/favicon.svg'"
+              />
               <div>
                 <div class="product-name">{{ productMap[row.productId]?.name || `商品 #${row.productId}` }}</div>
                 <div class="product-brand">{{ productMap[row.productId]?.brand || '' }}</div>

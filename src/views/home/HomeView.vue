@@ -36,7 +36,11 @@
             @click="$router.push(`/product/${product.id}`)"
           >
             <div class="product-image">
-              <img :src="product.imageUrl || 'https://via.placeholder.com/200x200?text=暂无图片'" :alt="product.name" />
+              <img
+                :src="product.imageUrl || '/favicon.svg'"
+                :alt="product.name"
+                @error="onImgError"
+              />
             </div>
             <div class="product-info">
               <div class="product-name">{{ product.name }}</div>
@@ -84,6 +88,7 @@ const scannerVisible = ref(false)
 const scanError = ref('')
 const lowestMap = ref({})
 let html5Qrcode = null
+const onImgError = (e) => { e.target.src = '/favicon.svg' }
 
 const loadLowestPrices = async (products) => {
   const ids = (products || []).map(p => p.id).filter(Boolean)
