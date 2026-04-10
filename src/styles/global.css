@@ -1,0 +1,50 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  background-color: #f5f7fa;
+  color: #303133;
+}
+
+#app {
+  min-height: 100vh;
+}
+
+.page-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.card-shadow {
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+}
+
+.price-highlight {
+  color: #f56c6c;
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+.price-original {
+  color: #909399;
+  text-decoration: line-through;
+  font-size: 0.9em;
+}
+
+.lowest-badge {
+  background: linear-gradient(135deg, #f56c6c, #e6a23c);
+  color: white;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.trend-up { color: #f56c6c; }
+.trend-down { color: #67c23a; }
+.trend-stable { color: #909399; }
